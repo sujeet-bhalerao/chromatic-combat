@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chromatic Combat</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h2>Chromatic Combat</h2>
+        <p>A graph coloring game</p>
+    </header>
+    <main>
+        <section id="rules">
+            <h3>Rules</h3>
+            <p>Two players, Maker and Breaker, take turns to color a graph's vertices. Maker's goal is to color the entire graph such that no two adjacent vertices share the same color. Breaker aims to prevent this. The game ends when all vertices are colored. If the coloring is proper, Maker wins; otherwise, Breaker wins.</p>
+            <p>Drag a color onto a vertex to color it. Good luck!</p>
+        </section>
+        <section id="game-container">
+            <div id="game-info">
+                <button id="start-btn" class="button">Start</button>
+                <button id="play-again-btn" class="button" style="display: none;">Play Again</button>
+                <h2 id="turn-info" style="display: none;">Turn: Maker</h2>
+                <h2 id="winner-info" style="display: none;"></h2>
+            </div>
+            <div id="graph"></div>
+            <div id="colors">
+                <div class="color" draggable="true" style="background-color: red;"></div>
+                <div class="color" draggable="true" style="background-color: green;"></div>
+                <div class="color" draggable="true" style="background-color: blue;"></div>
+            </div>
+        </section>
+    </main>
+</div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
